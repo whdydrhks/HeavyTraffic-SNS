@@ -48,6 +48,7 @@ public class MemberRepository {
     }
 
     public List<Member> findAllByIdIn(List<Long> ids) {
+        if(ids.isEmpty()) return List.of();
         var sql = String.format("SELECT * FROM %s WHERE id in (:ids)", TABLE);
         var params = new MapSqlParameterSource().addValue("ids",ids);
         return namedParameterJdbcTemplate.query(sql, params, rowMapper);
