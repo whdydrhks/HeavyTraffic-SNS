@@ -21,5 +21,6 @@ public class PostReadService { // 일자 별 게시물 횟수 반환
             where memberId = :memberId and createdDate between firstDate and lastDate
             group by createdDate memberId
          */
+        return postRepository.groupByCreateDate(request);
     }
 }
