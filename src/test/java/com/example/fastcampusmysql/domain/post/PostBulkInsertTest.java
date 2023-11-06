@@ -20,8 +20,8 @@ public class PostBulkInsertTest { // 스프링을 띄워서, 레포지토리에 
     public void bulkInsert() {
         var easyRandom = PostFixtureFactory.get(
                 3L,
-                LocalDate.of(2023, 1, 1),
-                LocalDate.of(2023, 2, 1)
+                LocalDate.of(1995, 1, 1),
+                LocalDate.of(2023, 11, 6)
         );
 
         var stopWatch = new StopWatch();
