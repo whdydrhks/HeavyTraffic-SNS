@@ -4,6 +4,8 @@ import com.example.fastcampusmysql.domain.post.dto.DailyPostCount;
 import com.example.fastcampusmysql.domain.post.dto.DailyPostCountRequest;
 import com.example.fastcampusmysql.domain.post.entity.Post;
 import com.example.fastcampusmysql.domain.post.repository.PostRepository;
+import com.example.fastcampusmysql.domain.util.CusorRequest;
+import com.example.fastcampusmysql.domain.util.PageCusor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -42,5 +44,9 @@ public class PostReadService { // 일자 별 게시물 횟수 반환
                 }
          */
         return postRepository.findAllByMemberId(memberId, pageRequest);
+    }
+
+    public PageCusor<Post> getPosts(Long memberId, CusorRequest cusorRequest) {
+
     }
 }
