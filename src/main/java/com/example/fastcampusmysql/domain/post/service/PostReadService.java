@@ -7,6 +7,7 @@ import com.example.fastcampusmysql.domain.post.repository.PostRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -28,7 +29,18 @@ public class PostReadService { // 일자 별 게시물 횟수 반환
     }
 
     // 회원의 게시물 반환 - 페이징 사용
-    public Page<Post> getPosts(Long memberId, PageRequest pageRequest) {
+    public Page<Post> getPosts(Long memberId, Pageable pageRequest) {
+        /*
+            Input
+                - memberId: 3
+                - pageable: {
+                    "page": 0,
+                    "size": 5,
+                    "sort": [
+                    "createdDate,ASC" 또는 "id,DESC"
+                    ]
+                }
+         */
         return postRepository.findAllByMemberId(memberId, pageRequest);
     }
 }
