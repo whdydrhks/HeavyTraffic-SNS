@@ -46,7 +46,7 @@ public class PostReadService { // 일자 별 게시물 횟수 반환
         return postRepository.findAllByMemberId(memberId, pageRequest);
     }
 
-    public PageCusor<Post> getPosts(Long memberId, CusorRequest cusorRequest) {
-
-    }
+//    public PageCusor<Post> getPosts(Long memberId, CusorRequest cusorRequest) {
+//
+//    }
 }

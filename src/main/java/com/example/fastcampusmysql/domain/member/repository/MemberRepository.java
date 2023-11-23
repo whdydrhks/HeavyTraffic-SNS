@@ -66,6 +66,7 @@ public class MemberRepository {
 
     private Member insert(Member member) {
         SimpleJdbcInsert simpleJdbcInsert = new SimpleJdbcInsert(namedParameterJdbcTemplate.getJdbcTemplate())// insert 쿼리 후 ID를 받아오는 것을 간단히 처리 가능.
+                .withCatalogName("sns")
                 .withTableName("Member")
                 .usingGeneratedKeyColumns("id");
         SqlParameterSource params = new BeanPropertySqlParameterSource(member);
